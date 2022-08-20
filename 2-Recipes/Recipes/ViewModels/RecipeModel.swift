@@ -12,15 +12,6 @@ class RecipeModel: ObservableObject {
     @Published var recipes: [Recipe] = []
     
     init() {
-        let recipe = Recipe(name: "BLT",
-                            ingredients: ["Bread", "Bacon", "Lettuce", "Tomatoes", "Mayonnaise"],
-                            steps: ["1) Put mayonnaise on bread", "2) put other ingredients on bread"])
-        
-        recipes.append(recipe)
+        self.recipes = DataServices.parseJSON()
     }
-    
-    func addRecipe(name: String) {
-        recipes.append(Recipe(name: name))
-    }
-    
 }

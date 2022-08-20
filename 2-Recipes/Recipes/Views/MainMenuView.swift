@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainMenuView: View {
 
     @ObservedObject var model = RecipeModel()
 
@@ -16,17 +16,21 @@ struct ContentView: View {
             NavigationView {
                 List(model.recipes) { recipe in
                     NavigationLink(
-                        destination: Text("Destination"),
+                        destination: RecipeDetailView(recipe: recipe),
                         label: {
-                            Text(recipe.name)
+                            HStack {
+                                Image(recipe.image)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 50, height: 50, alignment: .center)
+                                    .clipped()
+                                    .cornerRadius(5)
+                                Text(recipe.name)
+                            }
                         }
                     )
                     
                 }.navigationTitle(Text("Recipes"))
-            }
-            
-            Button("Add Recipe") {
-                model.addRecipe(name: "Burger")
             }
         }
     }
@@ -34,6 +38,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainMenuView()
     }
 }
