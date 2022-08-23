@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Recipe: Identifiable, Decodable {
+class Recipe: Identifiable, Decodable {
     
     var id          : UUID?     // optional property
     var name        : String
@@ -18,7 +18,8 @@ struct Recipe: Identifiable, Decodable {
     var cookTime    : String
     var totalTime   : String
     var servings    : Int
-    var ingredients : [String]
+    var highlights  : [String]
+    var ingredients : [Ingredient]
     var directions  : [String]
 
 }
