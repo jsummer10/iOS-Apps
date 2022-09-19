@@ -18,9 +18,6 @@ This repo contains a collection of basic iOS applications that were used to prac
   <img src="docs/img/2-recipes-list.png" width="100" /> 
   <img src="docs/img/2-recipes-detailed.png" width="100" />
 </p>
-<style>
-  table {border: none;}
-</style>
 
 ## App 3: Learning App
 
