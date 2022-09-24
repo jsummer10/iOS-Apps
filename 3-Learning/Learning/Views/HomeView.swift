@@ -27,6 +27,8 @@ struct HomeView: View {
                                         .onAppear(perform: {
                                             model.beginModule(module.id)
                                         }),
+                                    tag: module.id,
+                                    selection: $model.currentContentSelected,
                                     label: {
                                         HomeViewRow(image: module.content.image,
                                                     title: "Learn \(module.category)",
@@ -36,10 +38,13 @@ struct HomeView: View {
                                     })
                                 
                                 NavigationLink(
-                                    destination: ContentView(),
+                                    destination: TestView().onAppear(perform: { model.beginTest(module.id)
+                                    }),
+                                    tag: module.id,
+                                    selection: $model.currentTestSelected,
                                     label: {
                                         HomeViewRow(image: module.test.image,
-                                                    title: "Learn \(module.category)",
+                                                    title: "Test \(module.category)",
                                                     description: module.test.description,
                                                     count: "\(module.test.questions.count) Lessons",
                                                     time: module.test.time)

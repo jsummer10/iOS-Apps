@@ -24,19 +24,28 @@ struct ContentDetailView: View {
             
             CodeTextView()
             
-            // show next lesson button if applicable
             if model.hasNextLesson() {
+                // show next lesson button
                 Button(action: {
                     model.nextLesson()
                 }, label: {
                     ZStack {
-                        Rectangle()
-                            .frame(height: 48)
-                            .foregroundColor(.green)
-                            .cornerRadius(10)
-                            .shadow(radius: 5)
+                        RectangleCard(color: .green)
                         
                         Text("Next Lesson: \(model.currentModule!.content.lessons[model.currentLessonIndex+1].title)")
+                            .foregroundColor(.white)
+                            .bold()
+                    }.padding(20)
+                })
+            } else {
+                // show complete button
+                Button(action: {
+                    model.currentContentSelected = nil
+                }, label: {
+                    ZStack {
+                        RectangleCard(color: .green)
+                        
+                        Text("Complete")
                             .foregroundColor(.white)
                             .bold()
                     }.padding(20)
