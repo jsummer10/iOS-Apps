@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1623047528DEA7B6000D6E4B /* CodeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1623047428DEA7B6000D6E4B /* CodeTextView.swift */; };
 		164FAD3228D765AB00529076 /* HomeViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164FAD3128D765AB00529076 /* HomeViewRow.swift */; };
 		164FAD3428D76B6400529076 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164FAD3328D76B6400529076 /* ContentView.swift */; };
 		164FAD3628D7711F00529076 /* ContentViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164FAD3528D7711F00529076 /* ContentViewRow.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1623047428DEA7B6000D6E4B /* CodeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextView.swift; sourceTree = "<group>"; };
 		164FAD3128D765AB00529076 /* HomeViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewRow.swift; sourceTree = "<group>"; };
 		164FAD3328D76B6400529076 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		164FAD3528D7711F00529076 /* ContentViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewRow.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				164FAD3328D76B6400529076 /* ContentView.swift */,
 				164FAD3528D7711F00529076 /* ContentViewRow.swift */,
 				164FAD3728D7DEE900529076 /* ContentDetailView.swift */,
+				1623047428DEA7B6000D6E4B /* CodeTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				164FAD3828D7DEE900529076 /* ContentDetailView.swift in Sources */,
 				16B62D8728D640E400084C45 /* LearningApp.swift in Sources */,
 				164FAD3628D7711F00529076 /* ContentViewRow.swift in Sources */,
+				1623047528DEA7B6000D6E4B /* CodeTextView.swift in Sources */,
 				164FAD3228D765AB00529076 /* HomeViewRow.swift in Sources */,
 				16B62DA328D68D0300084C45 /* Models.swift in Sources */,
 				164FAD3D28D7E58500529076 /* Constants.swift in Sources */,

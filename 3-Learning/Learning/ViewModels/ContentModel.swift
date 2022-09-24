@@ -9,7 +9,6 @@ import Foundation
 
 class ContentModel: ObservableObject {
     @Published var modules = [Module]()
-    var styleData: Data?
     
     // current module
     @Published var currentModule: Module?
@@ -18,6 +17,10 @@ class ContentModel: ObservableObject {
     // current lesson
     @Published var currentLesson: Lesson?
     var currentLessonIndex = 0
+    
+    // current lesson explanation
+    @Published var lessonDescription = NSAttributedString()
+    var styleData: Data?
     
     init() {
         getLocalData()
@@ -72,6 +75,7 @@ class ContentModel: ObservableObject {
         }
         
         currentLesson = currentModule!.content.lessons[currentLessonIndex]
+        lessonDescription = addStyling(currentLesson!.explanation)
     }
     
     func hasNextLesson() -> Bool {
@@ -84,10 +88,33 @@ class ContentModel: ObservableObject {
         // verify next lesson is in range
         if currentLessonIndex < currentModule!.content.lessons.count {
             currentLesson = currentModule!.content.lessons[currentLessonIndex]
+            lessonDescription = addStyling(currentLesson!.explanation)
         } else {
             // reset lesson state
             currentLessonIndex = 0
             currentLesson = nil
         }
+    }
+    
+    // MARK: - Code Styling
+    
+    private func addStyling(_ htmlString: String) -> NSAttributedString {
+        var resultString = NSAttributedString()
+        var data = Data()
+        
+        // add styling data
+        if styleData != nil {
+            data.append(styleData!)
+        }
+        
+        // add html data
+        data.append(Data(htmlString.utf8))
+        
+        // convert to attributed string
+        if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
+            resultString = attributedString
+        }
+        
+        return resultString
     }
 }
