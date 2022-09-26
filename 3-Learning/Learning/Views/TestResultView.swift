@@ -19,9 +19,9 @@ struct TestResultView: View {
         
         let pct = Float(numCorrect) / Float(model.currentModule!.test.questions.count)
         
-        if pct > 0.9 {
+        if pct >= 0.9 {
             return "Awesome!"
-        } else if pct > 0.7 {
+        } else if pct >= 0.7 {
             return "You did well!"
         } else {
             return "Keep practicing!"
