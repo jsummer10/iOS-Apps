@@ -13,7 +13,7 @@ struct TestView: View {
     @State var selectedAnswerIndex:Int?
     @State var numCorrect = 0
     @State var submitted = false
-    
+
     var body: some View {
         if model.currentQuestion != nil {
             VStack (alignment: .leading){
@@ -62,26 +62,48 @@ struct TestView: View {
                 }
                 
                 Button {
-                    submitted = true
-                    
-                    if selectedAnswerIndex == model.currentQuestion!.correctIndex {
-                        numCorrect += 1
+                    if submitted {
+                        if model.currentQuestionIndex + 1 == model.currentModule!.test.questions.count {
+                            model.currentQuestion = nil
+                        } else {
+                            model.nextQuestion()
+                            selectedAnswerIndex = nil
+                            submitted = false
+                        }
+                    } else {
+                        submitted = true
+                        
+                        if selectedAnswerIndex == model.currentQuestion!.correctIndex {
+                            numCorrect += 1
+                        }
                     }
                 } label: {
                     ZStack {
                         RectangleCard(color: .green)
                                 .frame(height: 48)
-                        Text("Submit")
+                        Text(buttonText)
                             .foregroundColor(.white)
                             .bold()
                     }.padding(.horizontal, 15)
                 }.disabled(selectedAnswerIndex == nil)
-                
             }
             .navigationTitle("\(model.currentModule?.category ?? "") Test")
         } else {
-            // Test hasn't loaded yet
-            ProgressView()
+            // test hasn't loaded yet
+            TestResultView(numCorrect: numCorrect)
+        }
+    }
+    
+    // determine text of submit button
+    var buttonText: String {
+        if submitted {
+            if model.currentQuestionIndex + 1 == model.currentModule!.test.questions.count {
+                return "Finish"
+            } else {
+                return "Next"
+            }
+        } else {
+            return "Submit"
         }
     }
 }
