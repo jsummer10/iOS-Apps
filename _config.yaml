@@ -1,0 +1,6 @@
+remote_theme: pages-themes/slate@v0.2.0
+plugins:
+- jekyll-remote-theme
+
+title: iOS Practice Applications
+description: This repo contains a collection of basic iOS applications that were used to practice iOS developmental skills.
