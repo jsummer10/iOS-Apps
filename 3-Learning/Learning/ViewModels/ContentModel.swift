@@ -32,6 +32,7 @@ class ContentModel: ObservableObject {
     
     init() {
         getLocalData()
+        getRemoteData()
     }
     
     // MARK: - Data Methods
@@ -58,6 +59,39 @@ class ContentModel: ObservableObject {
         } catch {
             print("Couldn't parse the style data")
         }
+    }
+    
+    func getRemoteData() {
+        let urlString = "https://jsummer10.github.io/iOS-Apps/docs/data/3-learning-data.json"
+        
+        let url = URL(string: urlString)
+        
+        guard url != nil else {
+            // couldn't create url
+            print("Couldn't create URL")
+            return
+        }
+        
+        let request = URLRequest(url: url!)
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request) { (data, response, error) in
+            
+            guard error == nil else {
+                print("Couldn't create DataTask")
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let modules = try decoder.decode([Module].self, from: data!)
+                self.modules += modules
+                print(modules)
+            } catch {
+                
+            }
+        }
+        
+        dataTask.resume()
     }
     
     // MARK: - Module navigation methods
