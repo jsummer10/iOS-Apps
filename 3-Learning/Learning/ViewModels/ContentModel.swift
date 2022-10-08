@@ -64,34 +64,24 @@ class ContentModel: ObservableObject {
     func getRemoteData() {
         let urlString = "https://jsummer10.github.io/iOS-Apps/docs/data/3-learning-data.json"
         
+        // Create a url object
         let url = URL(string: urlString)
-        
-        guard url != nil else {
-            // couldn't create url
-            print("Couldn't create URL")
-            return
-        }
+        guard url != nil else { return }
         
         let request = URLRequest(url: url!)
         let session = URLSession.shared
-        let dataTask = session.dataTask(with: request) { (data, response, error) in
-            
-            guard error == nil else {
-                print("Couldn't create DataTask")
-                return
-            }
-            
+        session.dataTask(with: request) { (data, response, error) in
+            guard error == nil else { return }
             do {
                 let decoder = JSONDecoder()
                 let modules = try decoder.decode([Module].self, from: data!)
-                self.modules += modules
-                print(modules)
-            } catch {
                 
-            }
-        }
+                DispatchQueue.main.async {
+                    self.modules += modules
+                }
+            } catch {}
+        }.resume()
         
-        dataTask.resume()
     }
     
     // MARK: - Module navigation methods

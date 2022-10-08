@@ -50,6 +50,7 @@ struct HomeView: View {
                                                     time: module.test.time)
                                     })
                             }
+                            .padding(.bottom, 10)
                         }
                     }
                     .padding()

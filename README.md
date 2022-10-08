@@ -23,6 +23,13 @@ This repo contains a collection of basic iOS applications that were used to prac
 
 [code](3-Learning/)
 
+<p float="left">
+  <img src="docs/img/3-learning-home.png" width="100" />
+  <img src="docs/img/3-learning-course.png" width="100" />
+  <img src="docs/img/3-learning-lesson.png" width="100" /> 
+  <img src="docs/img/3-learning-test.png" width="100" />
+</p>
+
 ## Author
 
 __Jacob Summerville__
