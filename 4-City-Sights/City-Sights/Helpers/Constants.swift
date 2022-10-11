@@ -15,4 +15,6 @@ struct Constants {
     static var metersInMiles = 1609.34
     
     static var annotationReuseId = "business"
+    
+    static var appleMapsUrl = "http://maps.apple.com/"
 }
