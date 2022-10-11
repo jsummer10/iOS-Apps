@@ -15,11 +15,11 @@ struct LaunchView: View {
     var body: some View {
         
         if model.authorizationState == .notDetermined {
-            
+            OnboardingView()
         } else if model.authorizationState == CLAuthorizationStatus.authorizedAlways || model.authorizationState == CLAuthorizationStatus.authorizedWhenInUse{
             HomeView()
         } else if model.authorizationState == CLAuthorizationStatus.denied {
-            
+            LocationDeniedView()
         }
     }
 }
