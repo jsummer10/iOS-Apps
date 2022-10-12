@@ -58,6 +58,14 @@ Note: YelpAPI key file was not committed. To reproduce this project, it will nee
   <img src="4-City-Sights/img/5-map-detailed.png" width="100"/>
 </p>
 
+## App 5: Firebase Demo
+
+[code](5-Firebase-Demo/)
+
+Resources:
+- [Firebase](https://firebase.google.com/)
+- [Cocoa Pods](https://cocoapods.org/)
+
 ## Author
 
 __Jacob Summerville__
