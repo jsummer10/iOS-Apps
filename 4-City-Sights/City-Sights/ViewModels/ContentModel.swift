@@ -17,9 +17,9 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     var locationManager = CLLocationManager()
    
     @Published var authorizationState = CLAuthorizationStatus.notDetermined
-    
     @Published var restaurants = [Business]()
     @Published var sights = [Business]()
+    @Published var placemark: CLPlacemark?
     
     override init() {
         super.init()
@@ -55,6 +55,15 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
         if userLocation != nil {
             // Stop requesting the location after initial get
             locationManager.stopUpdatingLocation()
+            
+            // Get user's city from coordinates
+            let geoCoder = CLGeocoder()
+            
+            geoCoder.reverseGeocodeLocation(userLocation!) { (placemarks, error) in
+                if error == nil && placemarks != nil {
+                    self.placemark = placemarks?.first
+                }
+            }
             
             getBusinesses(category: Constants.restaurantKey, location: userLocation!)
             getBusinesses(category: Constants.sightsKey, location: userLocation!)

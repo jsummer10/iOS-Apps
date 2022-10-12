@@ -46,6 +46,18 @@ API: [https://fusion.yelp.com/](https://fusion.yelp.com/)
 
 Note: YelpAPI key file was not committed. To reproduce this project, it will need to be added. You can reference YelpAPI_Sample to do this.
 
+<p float="left">
+  <img src="4-City-Sights/img/1-list.png" width="100"/>
+  &nbsp;
+  <img src="4-City-Sights/img/2-detailed.png" width="100"/>
+  &nbsp;
+  <img src="4-City-Sights/img/3-directions.png" width="100"/> 
+  &nbsp;
+  <img src="4-City-Sights/img/4-map.png" width="100"/>
+  &nbsp;
+  <img src="4-City-Sights/img/5-map-detailed.png" width="100"/>
+</p>
+
 ## Author
 
 __Jacob Summerville__
