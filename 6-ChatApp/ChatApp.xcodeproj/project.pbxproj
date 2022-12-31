@@ -15,6 +15,15 @@
 		164D4FD2296091EB000C47D7 /* LexendDeca-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 164D4FCF296091EB000C47D7 /* LexendDeca-Regular.ttf */; };
 		164D4FD3296091EB000C47D7 /* LexendDeca-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 164D4FD0296091EB000C47D7 /* LexendDeca-SemiBold.ttf */; };
 		164D4FD629609411000C47D7 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164D4FD529609411000C47D7 /* Fonts.swift */; };
+		164D4FD92960B433000C47D7 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164D4FD82960B433000C47D7 /* TabBar.swift */; };
+		164D4FDB2960B47D000C47D7 /* TabBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164D4FDA2960B47D000C47D7 /* TabBarIcon.swift */; };
+		164D4FDD2960C0C4000C47D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 164D4FDC2960C0C4000C47D7 /* GoogleService-Info.plist */; };
+		164D4FE02960C268000C47D7 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 164D4FDF2960C268000C47D7 /* FirebaseAuth */; };
+		164D4FE22960C268000C47D7 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 164D4FE12960C268000C47D7 /* FirebaseFirestore */; };
+		164D4FE42960C268000C47D7 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 164D4FE32960C268000C47D7 /* FirebaseFirestoreSwift */; };
+		164D4FE62960C268000C47D7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 164D4FE52960C268000C47D7 /* FirebaseStorage */; };
+		164D4FE82960C2D1000C47D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164D4FE72960C2D1000C47D7 /* AppDelegate.swift */; };
+		164D4FEB2960C6F0000C47D7 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164D4FEA2960C6F0000C47D7 /* AuthViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +37,12 @@
 		164D4FD0296091EB000C47D7 /* LexendDeca-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-SemiBold.ttf"; sourceTree = "<group>"; };
 		164D4FD429609295000C47D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		164D4FD529609411000C47D7 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		164D4FD82960B433000C47D7 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		164D4FDA2960B47D000C47D7 /* TabBarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarIcon.swift; sourceTree = "<group>"; };
+		164D4FDC2960C0C4000C47D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "ChatApp/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		164D4FE72960C2D1000C47D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		164D4FE92960C554000C47D7 /* ChatApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChatApp.entitlements; sourceTree = "<group>"; };
+		164D4FEA2960C6F0000C47D7 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +50,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				164D4FE02960C268000C47D7 /* FirebaseAuth in Frameworks */,
+				164D4FE62960C268000C47D7 /* FirebaseStorage in Frameworks */,
+				164D4FE22960C268000C47D7 /* FirebaseFirestore in Frameworks */,
+				164D4FE42960C268000C47D7 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,7 +79,9 @@
 		164D4FB629608893000C47D7 /* ChatApp */ = {
 			isa = PBXGroup;
 			children = (
+				164D4FE92960C554000C47D7 /* ChatApp.entitlements */,
 				164D4FD429609295000C47D7 /* Info.plist */,
+				164D4FDC2960C0C4000C47D7 /* GoogleService-Info.plist */,
 				164D4FBB29608894000C47D7 /* Assets.xcassets */,
 				164D4FBD29608894000C47D7 /* Preview Content */,
 				164D4FB729608893000C47D7 /* ChatApp.swift */,
@@ -68,6 +89,7 @@
 				164D4FC929608F67000C47D7 /* Utilities */,
 				164D4FC629608F55000C47D7 /* ViewModels */,
 				164D4FC529608F4F000C47D7 /* Views */,
+				164D4FE72960C2D1000C47D7 /* AppDelegate.swift */,
 			);
 			path = ChatApp;
 			sourceTree = "<group>";
@@ -83,6 +105,7 @@
 		164D4FC529608F4F000C47D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				164D4FD72960B410000C47D7 /* TabBar */,
 				164D4FB929608893000C47D7 /* ContentView.swift */,
 			);
 			path = Views;
@@ -91,6 +114,7 @@
 		164D4FC629608F55000C47D7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				164D4FEA2960C6F0000C47D7 /* AuthViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -129,6 +153,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		164D4FD72960B410000C47D7 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				164D4FD82960B433000C47D7 /* TabBar.swift */,
+				164D4FDA2960B47D000C47D7 /* TabBarIcon.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +178,12 @@
 			dependencies = (
 			);
 			name = ChatApp;
+			packageProductDependencies = (
+				164D4FDF2960C268000C47D7 /* FirebaseAuth */,
+				164D4FE12960C268000C47D7 /* FirebaseFirestore */,
+				164D4FE32960C268000C47D7 /* FirebaseFirestoreSwift */,
+				164D4FE52960C268000C47D7 /* FirebaseStorage */,
+			);
 			productName = ChatApp;
 			productReference = 164D4FB429608893000C47D7 /* ChatApp.app */;
 			productType = "com.apple.product-type.application";
@@ -173,6 +212,9 @@
 				Base,
 			);
 			mainGroup = 164D4FAB29608893000C47D7;
+			packageReferences = (
+				164D4FDE2960C268000C47D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 164D4FB529608893000C47D7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -192,6 +234,7 @@
 				164D4FBF29608894000C47D7 /* Preview Assets.xcassets in Resources */,
 				164D4FD1296091EB000C47D7 /* LexendDeca-Bold.ttf in Resources */,
 				164D4FBC29608894000C47D7 /* Assets.xcassets in Resources */,
+				164D4FDD2960C0C4000C47D7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,9 +245,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				164D4FE82960C2D1000C47D7 /* AppDelegate.swift in Sources */,
 				164D4FBA29608893000C47D7 /* ContentView.swift in Sources */,
 				164D4FD629609411000C47D7 /* Fonts.swift in Sources */,
+				164D4FEB2960C6F0000C47D7 /* AuthViewModel.swift in Sources */,
 				164D4FB829608893000C47D7 /* ChatApp.swift in Sources */,
+				164D4FDB2960B47D000C47D7 /* TabBarIcon.swift in Sources */,
+				164D4FD92960B433000C47D7 /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +377,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ChatApp/ChatApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ChatApp/Preview Content\"";
@@ -349,6 +398,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jsummerville.ChatApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -360,6 +410,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ChatApp/ChatApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ChatApp/Preview Content\"";
@@ -379,6 +431,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jsummerville.ChatApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -407,6 +460,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		164D4FDE2960C268000C47D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		164D4FDF2960C268000C47D7 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 164D4FDE2960C268000C47D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		164D4FE12960C268000C47D7 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 164D4FDE2960C268000C47D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		164D4FE32960C268000C47D7 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 164D4FDE2960C268000C47D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		164D4FE52960C268000C47D7 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 164D4FDE2960C268000C47D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 164D4FAC29608893000C47D7 /* Project object */;
 }

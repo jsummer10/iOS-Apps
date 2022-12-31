@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var selectedTab : Tabs = .chats
+    
     var body: some View {
-        Text("Hello World")
+        VStack {
+            Spacer()
+            
+            Text("Hello World")
+            
+            // create a tab bar on the bottom of the screen
+            Spacer()
+            TabBar(selectedTab: $selectedTab)
+        }
+        
     }
 }
 
