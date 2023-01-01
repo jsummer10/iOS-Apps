@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State var selectedTab : Tabs = .chats
+    @State var isOnboarding = !AuthViewModel.isUserLoggedIn()
     
     var body: some View {
         VStack {
@@ -20,6 +21,11 @@ struct ContentView: View {
             // create a tab bar on the bottom of the screen
             Spacer()
             TabBar(selectedTab: $selectedTab)
+        }
+        .fullScreenCover(isPresented: $isOnboarding) {
+            // on dismiss
+        } content: {
+            OnboardingContainerView(isOnboarding: $isOnboarding)
         }
         
     }

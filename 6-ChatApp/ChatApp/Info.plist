@@ -15,7 +15,9 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string></string>
+		<string>LexendDeca-Regular.ttf</string>
+		<string>LexendDeca-Bold.ttf</string>
+		<string>LexendDeca-SemiBold.ttf</string>
 	</array>
 </dict>
 </plist>
