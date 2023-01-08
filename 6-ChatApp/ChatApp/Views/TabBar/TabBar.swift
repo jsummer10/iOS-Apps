@@ -24,7 +24,8 @@ struct TabBar: View {
             }
     
             Button {
-                
+                // TODO: Test purposes
+                AuthViewModel.logout()
             } label: {
                 TabBarIcon(icon: "plus.circle.fill", text: "New Chat", centerBtn: true)
             }

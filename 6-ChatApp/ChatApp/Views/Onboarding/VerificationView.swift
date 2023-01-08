@@ -10,6 +10,7 @@ import SwiftUI
 struct VerificationView: View {
     
     @Binding var currentStep: OnboardingStep
+    @Binding var isOnboarding: Bool
     @State var verificationCode = ""
     
     var body: some View {
@@ -48,7 +49,23 @@ struct VerificationView: View {
             Spacer()
             
             Button {
-                currentStep = .profile
+                // send the verification code to Firebase
+                AuthViewModel.verifyCode(code: verificationCode) { error in
+                    if error == nil {
+                        // check if user has a profile
+                        DatabaseService().checkUserProfile { exists in
+                            if exists {
+                                // end onboarding
+                                isOnboarding = false
+                            } else {
+                                // profile creation
+                                currentStep = .profile
+                            }
+                        }
+                    } else {
+                        // TODO: Display error
+                    }
+                }
             } label: {
                 Text("Next")
             }

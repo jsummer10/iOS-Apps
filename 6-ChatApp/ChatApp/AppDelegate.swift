@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import SwiftUI
-import FirebaseCore
+import UIKit
+import Firebase
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     // creates an app delegate for the FireBase database
@@ -17,5 +17,18 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         
         FirebaseApp.configure()
         return true
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print("\(#function)")
+        Auth.auth().setAPNSToken(deviceToken, type: .sandbox)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification notification: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print("\(#function)")
+        if Auth.auth().canHandleNotification(notification) {
+            completionHandler(.noData)
+            return
+        }
     }
 }

@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import Combine
 
 struct PhoneNumberView: View {
     
     @Binding var currentStep: OnboardingStep
     @State var phoneNumber = ""
+    @State var isButtonDisabled = false
     
     var body: some View {
         VStack {
@@ -31,6 +33,12 @@ struct PhoneNumberView: View {
                     TextField("e.g. +1 613 515 0123",
                               text: $phoneNumber)
                     .font(Font.bodyParagraph)
+                    .keyboardType(.numberPad)
+                    .onReceive(Just(phoneNumber)) { _ in
+                        TextUtil.applyPatternOnNumbers(&phoneNumber,
+                                                         pattern: "+# (###) ###-####",
+                                                         replacementCharacter: "#")
+                    }
                     
                     Spacer()
                     
@@ -48,12 +56,35 @@ struct PhoneNumberView: View {
             Spacer()
             
             Button {
-                currentStep = .verification
+                // disable the button from multiple taps
+                isButtonDisabled = true
+                
+                // verify user
+                AuthViewModel.sendPhoneNumber(phone: phoneNumber) { error in
+                    if error == nil {
+                        // move to next step
+                        currentStep = .verification
+                    } else {
+                        // TODO: present alert to user
+                    }
+                }
+                
+                // re-enable button
+                isButtonDisabled = false
+                
             } label: {
-                Text("Next")
+                HStack {
+                    Text("Next")
+                    
+                    if isButtonDisabled {
+                        ProgressView()
+                            .padding(.leading, 2)
+                    }
+                }
             }
             .buttonStyle(OnboardingButtonStyle())
             .padding(.bottom, 87)
+            .disabled(isButtonDisabled)
         }.padding(.horizontal)
     }
 }
