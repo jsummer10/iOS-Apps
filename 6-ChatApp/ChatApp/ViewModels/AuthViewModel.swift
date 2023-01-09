@@ -30,12 +30,12 @@ class AuthViewModel {
         try? Auth.auth().signOut()
     }
     
-    static func sendPhoneNumber(phone: String, completion: @escaping (Error?) -> Void) {
-        
+    static func sendPhoneNumber(phone: String, completion: @escaping (Error?) -> Void) {        
         // Send the phone number to Firebase Auth
         PhoneAuthProvider.provider().verifyPhoneNumber(phone,
                                                        uiDelegate: nil)
         { verificationId, error in
+            
             if error == nil {
                 // Got the verification id
                 UserDefaults.standard.set(verificationId, forKey: "authVerificationID")
@@ -45,6 +45,7 @@ class AuthViewModel {
                 // Notify the UI
                 completion(error)
             }
+            
         }
     }
     

@@ -99,8 +99,7 @@ class DatabaseService {
             
             fileRef.putData(imageData!, metadata: nil) { meta, error in
                 
-                if error == nil && meta != nil
-                {
+                if error == nil && meta != nil {
                     // Get full url to image
                     fileRef.downloadURL { url, error in
                         
@@ -115,25 +114,18 @@ class DatabaseService {
                                     completion(true)
                                 }
                             }
-                            
-                        }
-                        else {
+                        } else {
                             // Wasn't successful in getting download url for photo
                             completion(false)
                         }
                     }
-                    
-                    
-                }
-                else {
-                    
+                } else {
                     // Upload wasn't successful, notify caller
                     completion(false)
                 }
             }
             
-        }
-        else {
+        } else {
             // No image was set
             completion(true)
         }
@@ -156,8 +148,7 @@ class DatabaseService {
                 
                 // Notify that profile exists
                 completion(snapshot!.exists)
-            }
-            else {
+            } else {
                 // TODO: Look into using Result type to indicate failure vs profile exists
                 completion(false)
             }

@@ -14,7 +14,7 @@ struct ContactsListView: View {
     
     var body: some View {
         VStack {
-            // MARK: Contacts Screen
+            // MARK: Contacts Heading
             HStack {
                 Text("Contacts")
                     .font(Font.pageTitle)
@@ -43,12 +43,15 @@ struct ContactsListView: View {
                     .padding()
             }
             .frame(height: 46)
+            .onChange(of: filterText) { _ in
+                contactsViewModel.filterContacts(filterBy: filterText)
+            }
             
-            if contactsViewModel.users.count > 0 {
-                // MARK: List
-                List(contactsViewModel.users) { user in
+            // MARK: Contact Display
+            if contactsViewModel.filteredUsers.count > 0 {
+                List(contactsViewModel.filteredUsers) { user in
                     // Display rows
-                    Text(user.firstname ?? "Test User")
+                    ContactRow(user: user)
                 }.listStyle(.plain)
             } else {
                 Spacer()

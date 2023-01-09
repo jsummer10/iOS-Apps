@@ -13,6 +13,7 @@ struct PhoneNumberView: View {
     @Binding var currentStep: OnboardingStep
     @State var phoneNumber = ""
     @State var isButtonDisabled = false
+    @State private var showAlert = false
     
     var body: some View {
         VStack {
@@ -30,15 +31,14 @@ struct PhoneNumberView: View {
                     .foregroundColor(Color("input"))
                 
                 HStack {
-                    TextField("e.g. +1 613 515 0123",
-                              text: $phoneNumber)
-                    .font(Font.bodyParagraph)
-                    .keyboardType(.numberPad)
-                    .onReceive(Just(phoneNumber)) { _ in
-                        TextUtil.applyPatternOnNumbers(&phoneNumber,
-                                                         pattern: "+# (###) ###-####",
-                                                         replacementCharacter: "#")
-                    }
+                    TextField("e.g. +1 613 515 0123", text: $phoneNumber)
+                        .font(Font.bodyParagraph)
+                        .keyboardType(.numberPad)
+                        .onReceive(Just(phoneNumber)) { _ in
+                            TextUtil.applyPatternOnNumbers(&phoneNumber,
+                                                             pattern: "+# (###) ###-####",
+                                                             replacementCharacter: "#")
+                        }
                     
                     Spacer()
                     
@@ -65,7 +65,9 @@ struct PhoneNumberView: View {
                         // move to next step
                         currentStep = .verification
                     } else {
-                        // TODO: present alert to user
+                        // display error message
+                        print(error)
+                        showAlert = true
                     }
                 }
                 
@@ -85,6 +87,13 @@ struct PhoneNumberView: View {
             .buttonStyle(OnboardingButtonStyle())
             .padding(.bottom, 87)
             .disabled(isButtonDisabled)
-        }.padding(.horizontal)
+        }
+        .padding(.horizontal)
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Account Verification Error"),
+                message: Text("There was an error trying to verify your account.")
+            )
+        }
     }
 }

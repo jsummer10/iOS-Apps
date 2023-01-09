@@ -39,6 +39,8 @@
 		164D500629636CFA000C47D7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164D500529636CFA000C47D7 /* ImagePicker.swift */; };
 		16FC78B5296AF9B100F6D4FA /* ContactsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FC78B4296AF9B100F6D4FA /* ContactsListView.swift */; };
 		16FC78B7296AF9BF00F6D4FA /* ChatsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FC78B6296AF9BF00F6D4FA /* ChatsListView.swift */; };
+		16FC78B9296C4A7400F6D4FA /* ContactRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FC78B8296C4A7400F6D4FA /* ContactRow.swift */; };
+		16FC78BC296C50A200F6D4FA /* ProfilePicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FC78BB296C50A200F6D4FA /* ProfilePicView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +75,8 @@
 		164D500529636CFA000C47D7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		16FC78B4296AF9B100F6D4FA /* ContactsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListView.swift; sourceTree = "<group>"; };
 		16FC78B6296AF9BF00F6D4FA /* ChatsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsListView.swift; sourceTree = "<group>"; };
+		16FC78B8296C4A7400F6D4FA /* ContactRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRow.swift; sourceTree = "<group>"; };
+		16FC78BB296C50A200F6D4FA /* ProfilePicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,7 @@
 		164D4FC529608F4F000C47D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				16FC78BA296C509100F6D4FA /* Misc */,
 				16FC78B3296AF9A200F6D4FA /* Chats */,
 				16FC78B2296AF99000F6D4FA /* Contacts */,
 				164D4FEC2961D1B4000C47D7 /* Onboarding */,
@@ -219,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				16FC78B4296AF9B100F6D4FA /* ContactsListView.swift */,
+				16FC78B8296C4A7400F6D4FA /* ContactRow.swift */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -229,6 +235,14 @@
 				16FC78B6296AF9BF00F6D4FA /* ChatsListView.swift */,
 			);
 			path = Chats;
+			sourceTree = "<group>";
+		};
+		16FC78BA296C509100F6D4FA /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				16FC78BB296C50A200F6D4FA /* ProfilePicView.swift */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,12 +344,14 @@
 				164D4FF22961D314000C47D7 /* PhoneNumberView.swift in Sources */,
 				164D4FB829608893000C47D7 /* ChatApp.swift in Sources */,
 				164D4FF42961D31F000C47D7 /* VerificationView.swift in Sources */,
+				16FC78B9296C4A7400F6D4FA /* ContactRow.swift in Sources */,
 				164D4FFC2961DFBA000C47D7 /* CreateProfileTextFieldStyle.swift in Sources */,
 				16FC78B5296AF9B100F6D4FA /* ContactsListView.swift in Sources */,
 				164D4FFE2961E2D7000C47D7 /* ContactsViewModel.swift in Sources */,
 				164D500629636CFA000C47D7 /* ImagePicker.swift in Sources */,
 				164D4FDB2960B47D000C47D7 /* TabBarIcon.swift in Sources */,
 				164D4FD92960B433000C47D7 /* TabBar.swift in Sources */,
+				16FC78BC296C50A200F6D4FA /* ProfilePicView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

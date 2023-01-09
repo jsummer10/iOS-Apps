@@ -90,3 +90,5 @@ fastlane/test_output
 
 iOSInjectionProject/
 4-City-Sights/City-Sights/Helpers/YelpAPI.swift
+
+GoogleService-Info.plist
