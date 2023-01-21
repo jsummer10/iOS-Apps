@@ -9,7 +9,12 @@ import SwiftUI
 
 struct ContactsListView: View {
     
-    @EnvironmentObject var contactsViewModel : ContactsViewModel
+    @EnvironmentObject var contactsViewModel: ContactsViewModel
+    @EnvironmentObject var chatViewModel: ChatViewModel
+    
+    @Binding var isChatShowing: Bool
+    @Binding var isSettingsShowing: Bool
+    
     @State var filterText = ""
     
     var body: some View {
@@ -50,8 +55,12 @@ struct ContactsListView: View {
             // MARK: Contact Display
             if contactsViewModel.filteredUsers.count > 0 {
                 List(contactsViewModel.filteredUsers) { user in
-                    // Display rows
-                    ContactRow(user: user)
+                    Button {
+                        // Display conversation view
+                    } label: {
+                        // Display rows
+                        ContactRow(user: user)
+                    }.buttonStyle(.plain)
                 }.listStyle(.plain)
             } else {
                 Spacer()

@@ -9,39 +9,73 @@ import SwiftUI
 
 struct RootView: View {
     
-    @State var selectedTab : Tabs = .chats
+    // For detecting when the app state changes
+    @Environment(\.scenePhase) var scenePhase
+    
+    @EnvironmentObject var contactsViewModel: ContactsViewModel
+    @EnvironmentObject var chatViewModel: ChatViewModel
+    
+    @State var selectedTab: Tabs = .contacts
     @State var isOnboarding = !AuthViewModel.isUserLoggedIn()
+    @State var isChatShowing = false
+    @State var isSettingsShowing = false
     
     var body: some View {
+        
         ZStack {
+            
             Color("background")
                 .ignoresSafeArea()
             
             VStack {
-                Spacer()
-                
                 switch selectedTab {
                 case .chats:
-                    ChatsListView()
+                    ChatsListView(isChatShowing: $isChatShowing,
+                                  isSettingsShowing: $isSettingsShowing)
                 case .contacts:
-                    ContactsListView()
+                    ContactsListView(isChatShowing: $isChatShowing,
+                                     isSettingsShowing: $isSettingsShowing)
                 }
                 
-                // create a tab bar on the bottom of the screen
                 Spacer()
-                TabBar(selectedTab: $selectedTab)
+                
+                TabBar(selectedTab: $selectedTab, isChatShowing: $isChatShowing)
             }
-        }.fullScreenCover(isPresented: $isOnboarding) {
-            // on dismiss
+        }
+        .onAppear(perform: {
+            if !isOnboarding {
+                // User has already onboarded, load contacts
+                contactsViewModel.getLocalContacts()
+            }
+        })
+        .fullScreenCover(isPresented: $isOnboarding) {
+            // On dismiss
         } content: {
+            // The onboarding sequence
             OnboardingContainerView(isOnboarding: $isOnboarding)
         }
+        .fullScreenCover(isPresented: $isChatShowing, onDismiss: nil) {
+            
+            // The conversation view
+            ConversationView(isChatShowing: $isChatShowing)
+        }
+        .fullScreenCover(isPresented: $isSettingsShowing, onDismiss: nil, content: {
+            
+            // The Settings View
+            SettingsView(isSettingsShowing: $isSettingsShowing,
+                         isOnboarding: $isOnboarding)
+        })
+        .onChange(of: scenePhase) { newPhase in
+            
+            if newPhase == .active {
+                print("Active")
+            } else if newPhase == .inactive {
+                print("Inactive")
+            } else if newPhase == .background {
+                print("Background")
+                chatViewModel.chatListViewCleanup()
+            }
+        }
         
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        RootView()
     }
 }

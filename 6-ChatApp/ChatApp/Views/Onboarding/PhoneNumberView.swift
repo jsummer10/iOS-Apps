@@ -66,7 +66,6 @@ struct PhoneNumberView: View {
                         currentStep = .verification
                     } else {
                         // display error message
-                        print(error)
                         showAlert = true
                     }
                 }

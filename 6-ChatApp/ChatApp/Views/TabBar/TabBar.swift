@@ -13,7 +13,10 @@ enum Tabs : Int {
 }
 
 struct TabBar: View {
-    @Binding var selectedTab : Tabs
+    @Binding var selectedTab: Tabs
+    @Binding var isChatShowing: Bool
+    
+    @EnvironmentObject var chatViewModel: ChatViewModel
     
     var body: some View {
         HStack (alignment: .center) {
